@@ -1,68 +1,53 @@
 #!/bin/bash
 
-# --- Configuration Variables ---
-USERNAME="your_username" # Change this to your desired username
-DOTFILES_REPO="github.com"
-PKG_LIST_URL="URL_TO_YOUR_PKG_LIST/pkglist.txt" # e.g., Raw link from GitHub Gist or URL
+# Script to install official packages and AUR packages after archinstall
+# Requires running as a regular user with sudo privileges
 
-# Safety check for running as root
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run as root"
+# --- Configuration ---
+OFFICIAL_LIST="pkglist.txt"
+AUR_LIST="aurlist.txt"
+AUR_HELPER="paru" # You can change this to paru if you prefer
+
+# Check for root privileges (this script should run as a standard user)
+if [ "$EUID" -eq 0 ]; then
+    echo "Please run this script using your standard user account (not root)."
     exit
 fi
 
-echo "Starting custom Arch system configuration..."
+# 1. Install packages from the official repositories
+echo "Starting installation of packages from official repositories..."
+# Use --needed to skip packages that are already part of the base install
+sudo pacman -Syu --needed --noconfirm $(<"$OFFICIAL_LIST")
 
-# 1. Update system time
-hwclock --systohc
+if [ $? -eq 0 ]; then
+    echo "Official package installation complete."
+else
+    echo "An error occurred during official package installation. Please check the output."
+    exit 1
+fi
 
-# 2. Configure Locale and Timezone (Adjust if necessary)
-ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
-echo "en_US.UTF-8 UTF-8" >>/etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" >/etc/locale.conf
+# 2. Install the AUR helper (e.g., yay)
+echo "Installing the AUR helper ($AUR_HELPER)..."
+sudo pacman -S --needed --noconfirm base-devel git
+git clone "aur.archlinux.org" /tmp/"$AUR_HELPER"
+cd /tmp/"$AUR_HELPER"
+makepkg -si --noconfirm
+cd ~
+rm -rf /tmp/"$AUR_HELPER"
 
-# 3. Configure Networking (Set a hostname)
-echo "myhostname" >/etc/hostname
+# 3. Install AUR packages using the helper
+if [ -s "$AUR_LIST" ]; then
+    echo "Starting installation of AUR packages..."
+    # This command uses the newly installed helper to install the packages in the list
+    "$AUR_HELPER" -S --needed --noconfirm $(<"$AUR_LIST")
 
-# 4. Create User and Set Password (You will be prompted for passwords later)
-useradd -mG wheel,storage,video "$USERNAME"
-echo "Set root password:"
-passwd
-echo "Set $USERNAME password:"
-passwd "$USERNAME"
+    if [ $? -eq 0 ]; then
+        echo "AUR package installation complete."
+    else
+        echo "An error occurred during AUR package installation. Please check the output."
+    fi
+else
+    echo "No AUR packages found to install ($AUR_LIST is empty or non-existent)."
+fi
 
-# 5. Install Sudo
-pacman -Syu --noconfirm sudo git base-devel
-# Ensure the wheel group can use sudo
-EDITOR=tee visudo <<EOF
-%wheel ALL=(ALL) ALL
-EOF
-
-# 6. Install All Required Packages
-
-echo "Downloading package list..."
-curl -O "$PKG_LIST_URL"
-
-echo "Installing all packages from pkglist.txt..."
-# Use --needed to only install packages not already present in the base system
-pacman -Syu --needed --noconfirm - <pkglist.txt
-
-# 7. Setup Bootloader (Example using GRUB for EFI systems)
-# Make sure you mounted your EFI partition correctly (e.g., at /boot/efi or /boot)
-pacman -S grub efibootmgr --noconfirm
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ArchLinux
-grub-mkconfig -o /boot/grub/grub.cfg
-
-# 8. Deploy Dotfiles (Switches to the user context)
-echo "Deploying dotfiles for $USERNAME..."
-su - "$USERNAME" -c "
-    cd ~
-    git clone $DOTFILES_REPO .config/mydotfiles # Clones into a subdirectory
-    # If your repo contains files for ~, you need a method to symlink/copy them.
-    # A common approach is a 'stow' or 'chezmoi' setup script within the repo itself.
-    # Example using Chezmoi:
-    # sh -c '$(curl -fsSL git.io)' -- init --apply yourusername
-"
-
-echo "Installation script finished. Run 'exit' to leave chroot, then 'reboot'."
+echo "Installation process finished!"
