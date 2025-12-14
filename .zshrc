@@ -88,6 +88,9 @@ else
   export EDITOR='nvim'
 fi
 
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    exec startx
+fi
 # Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
 
@@ -111,10 +114,12 @@ alias mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
 
 
 export GEMINI_API_KEY="AIzaSyCfzxQzTcqyAJuLnEBxUc-IEgWlFsAAr6A"
-
+export PATH="$PATH:/home/winter/.spicetify-cli"
 export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
 
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
 
+
+export PATH=$PATH:/home/winter/.spicetify
