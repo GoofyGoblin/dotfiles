@@ -3,3 +3,11 @@ program = "/bin/zsh"
 
 [font]
 size = 12
+
+[env]
+# Force NVIDIA PRIME offload
+__NV_PRIME_RENDER_OFFLOAD = "1"
+__GLX_VENDOR_LIBRARY_NAME = "nvidia"
+
+# Optional: Ensure it uses the NVIDIA GBM backend if using Wayland/advanced drivers
+GBM_BACKEND = "nvidia-drm"
