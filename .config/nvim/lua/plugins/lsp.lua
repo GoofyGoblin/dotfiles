@@ -113,6 +113,11 @@ return {
 					fileOperations = {
 						didRename = true,
 						willRename = true,
+						workspace_required = true,
+					},
+					rename = {
+						prepareSupport = true,
+						changeAll = true,
 					},
 				},
 			},
@@ -221,6 +226,10 @@ return {
 		},
 		config = function(_, opts)
 			-- Setup keymaps
+			vim.lsp.config("ts_ls", {
+				root_markers = { "package.json", "jsconfig.json", "tsconfig.json", ".git" },
+			})
+			vim.lsp.enable("ts_ls")
 			local function on_attach(client, buffer)
 				local function map(mode, lhs, rhs, desc)
 					vim.keymap.set(mode, lhs, rhs, { buffer = buffer, desc = "LSP: " .. desc })

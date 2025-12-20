@@ -6,7 +6,7 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
-		explorer = { enabled = true },
+		explorer = { enabled = false },
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = {
@@ -27,6 +27,13 @@ return {
 	},
 	keys = {
 		-- Top Pickers & Explorer
+		-- {
+		-- 	"<leader>e",
+		-- 	function()
+		-- 		Snacks.picker.explorer()
+		-- 	end,
+		-- 	desc = "Explorer",
+		-- },
 		{
 			"<leader>:",
 			function()

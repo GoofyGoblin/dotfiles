@@ -111,7 +111,7 @@ alias sober='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sober 
 alias cdwm="nvim ~/dwm-btw/config.h"
 alias mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
 
-
+alias kickstart='NVIM_APPNAME="kickstart" nvim'
 
 export GEMINI_API_KEY="AIzaSyCfzxQzTcqyAJuLnEBxUc-IEgWlFsAAr6A"
 export PATH="$PATH:/home/winter/.spicetify-cli"
