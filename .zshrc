@@ -77,6 +77,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/home/winter/.config/emacs/bin:$PATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -107,19 +108,21 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias n="nvim"
-alias sober='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u'
-alias cdwm="nvim ~/dwm-btw/config.h"
-alias mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
+# alias sober='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u'
+# alias cdwm="nvim ~/dwm-btw/config.h"
+# alias mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
 
 alias kickstart='NVIM_APPNAME="kickstart" nvim'
-
-export GEMINI_API_KEY="AIzaSyCfzxQzTcqyAJuLnEBxUc-IEgWlFsAAr6A"
+# alias jsdebug='nohup brave --remote-debugging-port=9222 http://localhost:5173'
+export GEMINI_API_KEY="AIzaSyD7AYSO8xVZlZjc35AWpfe3DZCz6jzTkOk"
 export PATH="$PATH:/home/winter/.spicetify-cli"
-export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
+# export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
+
 
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
 
+# export BROWSER=google-chrome-unstable
 
 export PATH=$PATH:/home/winter/.spicetify

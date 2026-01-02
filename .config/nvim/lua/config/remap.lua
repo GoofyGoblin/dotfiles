@@ -67,23 +67,23 @@ local opts = { desc = "", noremap = true, silent = true }
 
 -- Find files
 map("n", "<leader>ff", function()
-	require("telescope.builtin").find_files()
-end, vim.tbl_extend("force", opts, { desc = "Telescope: Find Files" }))
+	vim.cmd("Pick files")
+end, vim.tbl_extend("force", opts, { desc = "MiniPick: Find Files" }))
 
 -- Live grep
 map("n", "<leader>fg", function()
-	require("telescope.builtin").live_grep()
-end, vim.tbl_extend("force", opts, { desc = "Telescope: Live Grep" }))
+	vim.cmd("Pick grep")
+end, vim.tbl_extend("force", opts, { desc = "MiniPick: Live Grep" }))
 
 -- Buffers
 map("n", "<leader>fb", function()
-	require("telescope.builtin").buffers()
-end, vim.tbl_extend("force", opts, { desc = "Telescope: Buffers" }))
+	vim.cmd("Pick buffers")
+end, vim.tbl_extend("force", opts, { desc = "MiniPick: Buffers" }))
 
 -- Help tags
-map("n", "<leader>fh", function()
-	require("telescope.builtin").help_tags()
-end, vim.tbl_extend("force", opts, { desc = "Telescope: Help Tags" }))
+-- map("n", "<leader>fh", function()
+-- 	require("telescope.builtin").help_tags()
+-- end, vim.tbl_extend("force", opts, { desc = "Telescope: Help Tags" }))
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -132,6 +132,17 @@ vim.keymap.set("n", "<leader>t<", ":tabmove -1<CR>", { desc = "Move tab left" })
 vim.keymap.set("n", "<leader>tt", ":tabnext<CR>", { desc = "Next tab" })
 vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Prev tab" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "rename" })
+
+vim.keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle Pin" })
+vim.keymap.set("n", "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete Non-Pinned Buffers" })
+vim.keymap.set("n", "<leader>br", "<Cmd>BufferLineCloseRight<CR>", { desc = " Delete Buffers to the Right" })
+vim.keymap.set("n", "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", { desc = " Delete Buffers to the Left" })
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "[B", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer prev" })
+vim.keymap.set("n", "]B", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer next" })
 -- ============================================================================
 -- STATUSLINE
 -- ============================================================================

@@ -17,7 +17,7 @@ return {
 				theme = "kanagawa-dragon",
 				-- etc.
 			})
-			vim.cmd("colorscheme kanagawa")
+			-- vim.cmd("colorscheme kanagawa")
 		end,
 	},
 }

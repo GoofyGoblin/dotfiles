@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -113,13 +113,14 @@ require("lazy").setup({
 -- })
 
 -- vim.cmd("colorscheme rose-pine")
-vim.cmd("colorscheme kanagawa-dragon")
+-- vim.cmd("colorscheme kanagawa-dragon")
 -- -- vim.cmd("colorscheme rose-pine-main")
 -- -- vim.cmd("colorscheme rose-pine-moon")
 -- -- vim.cmd("colorscheme rose-pine-dawn")
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
--- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.cmd("colorscheme vague")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })

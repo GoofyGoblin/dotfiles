@@ -238,7 +238,7 @@ return {
 				-- Code actions
 				map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
 				map("v", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-				map("n", "<leader>cc", vim.lsp.codelens.run, "Run Codelens")
+				map("n", "<leader>Cc", vim.lsp.codelens.run, "Run Codelens")
 				map("n", "<leader>cC", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
 				map("n", "<leader>cr", vim.lsp.buf.rename, "Rename")
 
