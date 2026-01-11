@@ -1,0 +1,26 @@
+vim.pack.add({
+	{ src = "https://github.com/jiaoshijie/undotree" },
+	{ src = "https://github.com/monkoose/neocodeium" },
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/adriankarlen/plugin-view.nvim" },
+	{ src = "https://github.com/vague-theme/vague.nvim" },
+	{ src = "https://github.com/strash/everybody-wants-that-line.nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/LunarVim/bigfile.nvim" },
+	{ src = "https://github.com/smithbm2316/centerpad.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-lint" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/nvim-orgmode/orgmode" },
+	{ src = "https://github.com/nvim-orgmode/org-bullets.nvim" },
+	{ src = "https://github.com/folke/flash.nvim" },
+	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+})
+
+require("plugin-view").setup()

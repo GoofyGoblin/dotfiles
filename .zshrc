@@ -107,11 +107,11 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias n="nvim"
 # alias sober='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u'
 # alias cdwm="nvim ~/dwm-btw/config.h"
 # alias mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
 
+alias n='nvim'
 alias kickstart='NVIM_APPNAME="kickstart" nvim'
 # alias jsdebug='nohup brave --remote-debugging-port=9222 http://localhost:5173'
 export GEMINI_API_KEY="AIzaSyD7AYSO8xVZlZjc35AWpfe3DZCz6jzTkOk"
@@ -126,3 +126,7 @@ export __VK_LAYER_NV_optimus=NVIDIA_only
 # export BROWSER=google-chrome-unstable
 
 export PATH=$PATH:/home/winter/.spicetify
+
+# Created by `pipx` on 2026-01-03 06:42:11
+export PATH="$PATH:/home/winter/.local/bin"
+export PATH="$PATH:/usr/lib/node_modules/prettier"

@@ -8,8 +8,7 @@
 ;;   3. Restart Emacs.
 ;;
 ;; Use 'C-h f package\!' to look up documentation for the `package!' macro.
-
-
+;; (package! codeium)
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
 

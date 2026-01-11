@@ -67,18 +67,18 @@ local opts = { desc = "", noremap = true, silent = true }
 
 -- Find files
 map("n", "<leader>ff", function()
-	vim.cmd("Pick files")
-end, vim.tbl_extend("force", opts, { desc = "MiniPick: Find Files" }))
+	vim.cmd("Telescope find_files")
+end, vim.tbl_extend("force", opts, { desc = "Telescope: Find Files" }))
 
 -- Live grep
 map("n", "<leader>fg", function()
-	vim.cmd("Pick grep")
-end, vim.tbl_extend("force", opts, { desc = "MiniPick: Live Grep" }))
+	vim.cmd("Telescope live_grep")
+end, vim.tbl_extend("force", opts, { desc = "Telescope: Live Grep" }))
 
 -- Buffers
 map("n", "<leader>fb", function()
-	vim.cmd("Pick buffers")
-end, vim.tbl_extend("force", opts, { desc = "MiniPick: Buffers" }))
+	vim.cmd("Telescope buffers")
+end, vim.tbl_extend("force", opts, { desc = "Telescope: Buffers" }))
 
 -- Help tags
 -- map("n", "<leader>fh", function()
