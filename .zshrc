@@ -130,3 +130,5 @@ export PATH=$PATH:/home/winter/.spicetify
 # Created by `pipx` on 2026-01-03 06:42:11
 export PATH="$PATH:/home/winter/.local/bin"
 export PATH="$PATH:/usr/lib/node_modules/prettier"
+
+export DISCORDO_TOKEN="ODQxNjU5NjI4NDc5MzE1OTc5.GdGKEe.J5nD3v9uLCQMxEzLOxpOQQltls9-X46T_1F4aU"

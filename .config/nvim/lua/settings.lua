@@ -10,6 +10,7 @@ vim.lsp.enable({
 	"pyright",
 	"jsonls",
 	"clangd",
+	"tailwindcss",
 })
 
 -- autocompletion
