@@ -13,6 +13,7 @@ vim.lsp.enable({
 	"tailwindcss",
 })
 
+
 -- autocompletion
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("my.lsp", {}),
@@ -21,16 +22,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if vim.lsp.inlay_hint then
 			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 		end
-		-- local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-		-- if client:supports_method("textDocument/completion") then
-		-- 	-- Optional: trigger autocompletion on EVERY keypress. May be slow!
-		-- 	local chars = {}
-		-- 	for i = 32, 126 do
-		-- 		table.insert(chars, string.char(i))
-		-- 	end
-		-- 	client.server_capabilities.completionProvider.triggerCharacters = chars
-		-- 	vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-		-- end
 	end,
 })
 
@@ -41,7 +32,10 @@ neocodeium.setup()
 
 -- theme
 require("vague").setup({})
-vim.cmd("colorscheme vague")
+-- vim.cmd("colorscheme vague")
+-- vim.cmd.("colorscheme kanagawa_lotus")
+-- vim.cmd("colorscheme onelight")
+vim.cmd("colorscheme onedark_dark")
 
 -- statusbar
 require("everybody-wants-that-line").setup({
@@ -63,7 +57,7 @@ require("everybody-wants-that-line").setup({
 	filepath = {
 		enabled = true,
 		path = "relative",
-		shorten = false,
+		shorten = true,
 	},
 	filesize = {
 		enabled = true,
@@ -79,19 +73,7 @@ require("everybody-wants-that-line").setup({
 })
 
 -- big files
-require("bigfile").setup({
-	filesize = 2,
-	pattern = { "*" },
-	features = {
-		"indent_blankline",
-		"lsp",
-		"treesitter",
-		"syntax",
-		"matchparen",
-		"vimopts",
-		"filetype",
-	},
-})
+require('faster').setup()
 
 -- nvim-lint
 local lint = require("lint")
@@ -114,27 +96,13 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
--- conform
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "isort", "black" },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
-	},
-	format_on_save = {
-		-- These options will be passed to conform.format()
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
-})
-
 -- org mode
 require("orgmode").setup({
 	org_agenda_files = "~/notes/**/*",
 	org_default_notes_file = "~/notes/refile.org",
 })
 require("org-bullets").setup({
-	concealcursor = false,
+	concealcursor = true,
 })
 
 -- flash
@@ -180,3 +148,34 @@ vim.lsp.config("html-lsp", {})
 
 --lua snip
 require("luasnip.loaders.from_vscode").lazy_load()
+
+
+--fzf-lua
+require("fzf-lua").setup({
+    keymap = {
+        fzf = {
+            ["ctrl-q"] = "select-all+accept",
+        },
+    },
+})
+
+-- treesitter
+vim.cmd('packadd nvim-treesitter')
+
+require('nvim-treesitter.config').setup({
+
+
+  highlight = {
+    enable = true, -- This replaces your manual vim.treesitter.start()
+  },
+  -- Ensure parsers are installed
+  ensure_installed = { "javascript", "typescript", "lua", "python" },
+})
+
+
+require("vietnamese").setup()
+
+-- autopairs
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})

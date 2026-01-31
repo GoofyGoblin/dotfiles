@@ -30,3 +30,12 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 vim.opt.laststatus = 3
+vim.opt.list = true
+vim.opt.listchars = {
+	space = "·",
+	tab = "» ",
+	trail = "·",
+	eol = "¶",
+	extends = ">",
+	precedes = "<",
+}
