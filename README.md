@@ -32,3 +32,14 @@ then use stow
 ```
 stow .
 ```
+Also build the fzf native nvim plugin by
+
+```
+cd ~/.local/share/nvim/site/pack/core/opt/telescope-fzf-native.nvim
+```
+then
+
+```
+cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+```

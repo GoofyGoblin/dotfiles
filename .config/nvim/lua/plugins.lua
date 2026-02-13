@@ -25,7 +25,25 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/NeogitOrg/neogit" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+	{
+	    src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+
+	    opt = false, -- force start plugin
+
+	    build = function(plugin)
+	      vim.system({
+	        "cmake",
+	        "-S.", "-Bbuild",
+	        "-DCMAKE_BUILD_TYPE=Release"
+	      }, { cwd = plugin.path }):wait()
+
+	      vim.system({
+	        "cmake",
+	        "--build", "build",
+	        "--config", "Release"
+	      }, { cwd = plugin.path }):wait()
+	    end,
+	},
 	{ src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/MysticalDevil/inlay-hints.nvim" },
