@@ -86,7 +86,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='helix'
 fi
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -113,8 +113,8 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 alias n='nvim'
 alias kickstart='NVIM_APPNAME="kickstart" nvim'
+alias h='helix'
 # alias jsdebug='nohup brave --remote-debugging-port=9222 http://localhost:5173'
-export GEMINI_API_KEY="AIzaSyD7AYSO8xVZlZjc35AWpfe3DZCz6jzTkOk"
 export PATH="$PATH:/home/winter/.spicetify-cli"
 # export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
 
@@ -131,4 +131,4 @@ export PATH=$PATH:/home/winter/.spicetify
 export PATH="$PATH:/home/winter/.local/bin"
 export PATH="$PATH:/usr/lib/node_modules/prettier"
 
-export DISCORDO_TOKEN="ODQxNjU5NjI4NDc5MzE1OTc5.GdGKEe.J5nD3v9uLCQMxEzLOxpOQQltls9-X46T_1F4aU"
+eval "$(zoxide init zsh)"

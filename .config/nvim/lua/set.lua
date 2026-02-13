@@ -1,7 +1,6 @@
 local vim = vim
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.guicursor = ""
 vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.breakindent = true

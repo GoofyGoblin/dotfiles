@@ -1,5 +1,5 @@
-require("oil").setup()
 require("mason").setup()
+
 -- lsp
 vim.lsp.enable({
 	"lua_ls",
@@ -13,29 +13,37 @@ vim.lsp.enable({
 	"tailwindcss",
 })
 
-
--- autocompletion
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("my.lsp", {}),
-	callback = function(args)
-		local bufnr = args.buf
-		if vim.lsp.inlay_hint then
-			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-		end
-	end,
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.server_capabilities.semanticTokensProvider then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
 })
 
-vim.cmd([[set completeopt+=menuone,noselect,popup]])
+
+
 
 local neocodeium = require("neocodeium")
 neocodeium.setup()
 
 -- theme
 require("vague").setup({})
--- vim.cmd("colorscheme vague")
+vim.cmd("colorscheme vague")
 -- vim.cmd.("colorscheme kanagawa_lotus")
 -- vim.cmd("colorscheme onelight")
-vim.cmd("colorscheme onedark_dark")
+-- require("onedarkpro").setup({
+--   highlights = {
+--     Comment = { italic = true },
+--     ErrorMsg = { italic = true, bold = true }
+--   },
+--   plugins = {
+--     nvim_lsp = true,
+-- 	treesitter = true
+--   }
+-- })
+-- vim.cmd("colorscheme onedark_dark")
 
 -- statusbar
 require("everybody-wants-that-line").setup({
@@ -140,42 +148,142 @@ vim.lsp.config("*", {
 	capabilities = capabilities,
 })
 
--- Configure servers registered by nvim-lspconfig
-vim.lsp.config("lua_ls", {})
-vim.lsp.config("pyright", {})
-vim.lsp.config("ts_ls", {})
-vim.lsp.config("html-lsp", {})
+vim.lsp.config("ts_ls", {
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+  },
+})
+
 
 --lua snip
 require("luasnip.loaders.from_vscode").lazy_load()
 
 
---fzf-lua
-require("fzf-lua").setup({
-    keymap = {
-        fzf = {
-            ["ctrl-q"] = "select-all+accept",
-        },
-    },
-})
+--telescope
+require('plenary')
+require('telescope').setup {
+	defaults = {
+		preview = {
+			treesitter = false,
+		}
+	},
+	extensions = {
+		fzf = {
+			fuzzy = true,          -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+		},
+	}
+}
+
+
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('ui-select')
 
 -- treesitter
-vim.cmd('packadd nvim-treesitter')
 
 require('nvim-treesitter.config').setup({
-
-
-  highlight = {
-    enable = true, -- This replaces your manual vim.treesitter.start()
-  },
-  -- Ensure parsers are installed
-  ensure_installed = { "javascript", "typescript", "lua", "python" },
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = { enable = true },
+	ensure_installed = {
+		'javascript',
+		'typescript',
+		'tsx',
+		'jsx',
+		'python',
+	}
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
+})
+
+
+require("nvim-treesitter-textobjects").setup {
+	select = {
+		lookahead = true,
+		selection_modes = {
+			['@parameter.outer'] = 'v', -- charwise
+			['@function.outer'] = 'V', -- linewise
+		},
+		include_surrounding_whitespace = false,
+	},
+	move = {
+		set_jumps = true,
+	}
+}
+
 
 
 require("vietnamese").setup()
 
 -- autopairs
 require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
+	disable_filetype = { "TelescopePrompt", "vim" },
 })
+
+
+-- inlay hints
+require("inlay-hints").setup({
+  commands = { enable = true },
+  autocmd = { enable = true },
+})
+
+-- refactoring
+local refactoring = require("refactoring")
+
+refactoring.setup({
+  show_success_message = true,
+
+  prompt_func_return_type = {
+    go = true,
+    cpp = true,
+    c = true,
+    java = true,
+  },
+
+  prompt_func_param_type = {
+    go = true,
+    cpp = true,
+    c = true,
+    java = true,
+  },
+})
+
+-- Optional: Telescope integration
+pcall(function()
+  require("telescope").load_extension("refactoring")
+end)
+
+
+-- mini files
+require("mini.files").setup({
+	options = {
+		use_as_default_explorer = true
+	}
+});
+

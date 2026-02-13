@@ -1,11 +1,11 @@
 vim.pack.add({
 	{ src = "https://github.com/jiaoshijie/undotree" },
 	{ src = "https://github.com/monkoose/neocodeium" },
-	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-mini/mini.files" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter",                            version = "main" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/adriankarlen/plugin-view.nvim" },
 	{ src = "https://github.com/vague-theme/vague.nvim" },
@@ -23,6 +23,14 @@ vim.pack.add({
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/sontungexpt/vietnamese.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/NeogitOrg/neogit" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+	{ src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
+	{ src = "https://github.com/MysticalDevil/inlay-hints.nvim" },
+	{ src = "https://github.com/jake-stewart/multicursor.nvim" },
+	{ src = "https://github.com/ThePrimeagen/refactoring.nvim" },
 })
 
 require("plugin-view").setup()
