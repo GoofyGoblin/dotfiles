@@ -86,7 +86,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='hx'
 fi
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -116,6 +116,7 @@ alias h='helix'
 alias pi='doas xbps-install'
 alias su='doas xpbs-íntall -Su'
 alias pr='doas xbps-remove'
+alias cd='z'
 # alias jsdebug='nohup brave --remote-debugging-port=9222 http://localhost:5173'
 export PATH="$PATH:/home/winter/.spicetify-cli"
 # export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
@@ -136,6 +137,7 @@ export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 
 export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
 export PATH="$PATH:/home/winter/.cargo/bin"
+export PATH="$PATH:/home/winter/ani-cli/"
 
 
 

@@ -1,0 +1,26 @@
+[global]
+    geometry = "300x100-10+10"
+    background = "#222222"
+    foreground = "#FFFFFF"
+    frame_color = "#222222"
+
+[global]
+    timeout = 5
+    font = "Liberation Sans 12"
+    separator_color = "#C0C0C0"
+
+[critical]
+    background = "#FF0000"
+    foreground = "#FFFFFF"
+
+[warning]
+    background = "#FFA500"
+    foreground = "#FFFFFF"
+
+[information]
+    background = "#007FFF"
+    foreground = "#FFFFFF"
+
+[normal]
+    background = "#222222"
+    foreground = "#FFFFFF"

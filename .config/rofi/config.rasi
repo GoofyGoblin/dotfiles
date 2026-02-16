@@ -1,0 +1,35 @@
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+@theme "/usr/share/rofi/themes/dmenu.rasi"
+* {
+    background-color:      rgb(34, 34, 34);
+    border-color:          White;
+    text-color:           White;
+    font:            "mono 17";
+}
+
+window {
+    anchor:     north;
+    location:   north;
+    width:      100%;
+	height:		3%;
+	padding:	0px;
+    children:   [ horibox ];
+}
+
+listview {
+    layout:     horizontal;
+    lines:      100;
+}
+
+prompt {
+	enabled: false;
+}
+
+element {
+    padding: 0px 0px;
+}
+
+element selected {
+    background-color: rgb(128, 128, 128);
+}
