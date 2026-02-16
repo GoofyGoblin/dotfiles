@@ -86,7 +86,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='helix'
+  export EDITOR='nvim'
 fi
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -95,7 +95,6 @@ fi
 # Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -114,6 +113,9 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 alias n='nvim'
 alias kickstart='NVIM_APPNAME="kickstart" nvim'
 alias h='helix'
+alias pi='doas xbps-install'
+alias su='doas xpbs-íntall -Su'
+alias pr='doas xbps-remove'
 # alias jsdebug='nohup brave --remote-debugging-port=9222 http://localhost:5173'
 export PATH="$PATH:/home/winter/.spicetify-cli"
 # export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
@@ -130,5 +132,16 @@ export PATH=$PATH:/home/winter/.spicetify
 # Created by `pipx` on 2026-01-03 06:42:11
 export PATH="$PATH:/home/winter/.local/bin"
 export PATH="$PATH:/usr/lib/node_modules/prettier"
+export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 
+export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
+export PATH="$PATH:/home/winter/.cargo/bin"
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 eval "$(zoxide init zsh)"

@@ -30,7 +30,7 @@ neocodeium.setup()
 
 -- theme
 require("vague").setup({})
-vim.cmd("colorscheme vague")
+-- vim.cmd("colorscheme vague")
 -- vim.cmd.("colorscheme kanagawa_lotus")
 -- vim.cmd("colorscheme onelight")
 -- require("onedarkpro").setup({
@@ -43,7 +43,7 @@ vim.cmd("colorscheme vague")
 -- 	treesitter = true
 --   }
 -- })
--- vim.cmd("colorscheme onedark_dark")
+vim.cmd("colorscheme onedark_dark")
 
 -- statusbar
 require("everybody-wants-that-line").setup({
