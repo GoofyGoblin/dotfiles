@@ -9,6 +9,6 @@ if [ -z "$RANDOM_WALLPAPER" ]; then
   exit 1
 fi
 
-feh --bg-scale "$RANDOM_WALLPAPER"
+feh --bg-max "$RANDOM_WALLPAPER"
 
 echo "Wallpaper set to: $RANDOM_WALLPAPER"
