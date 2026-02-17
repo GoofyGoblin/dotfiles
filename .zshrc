@@ -138,6 +138,7 @@ export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
 export PATH="$PATH:/home/winter/.cargo/bin"
 export PATH="$PATH:/home/winter/ani-cli/"
+export PATH="$PATH:/home/winter/scripts/"
 
 
 
