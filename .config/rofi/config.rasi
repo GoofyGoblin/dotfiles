@@ -5,7 +5,7 @@
     background-color:      rgb(34, 34, 34);
     border-color:          White;
     text-color:           White;
-    font:            "mono 17";
+    font:            "IosevkaNerdFontMono 12";
 }
 
 window {

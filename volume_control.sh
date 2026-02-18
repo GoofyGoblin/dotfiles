@@ -8,6 +8,7 @@ update_notification() {
     MUTE_STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
     if [ "$MUTE_STATUS" == "yes" ]; then
         icon="audio-volume-muted"
+		muted="1"
     else
         VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
         if [ "$VOLUME" -eq 0 ]; then
@@ -28,13 +29,25 @@ update_notification() {
 case "$1" in
     increase)
         pactl set-sink-volume @DEFAULT_SINK@ +5%
-        VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-        update_notification "Volume: ${VOLUME}%"
+        # Re-evaluate MUTE_STATUS and VOLUME after changing volume
+        MUTE_STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+        if [ "$MUTE_STATUS" == "yes" ]; then
+            update_notification "Volume: Muted"
+        else
+            VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
+            update_notification "Volume: ${VOLUME}%"
+        fi
         ;;
     decrease)
         pactl set-sink-volume @DEFAULT_SINK@ -5%
-        VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-        update_notification "Volume: ${VOLUME}%"
+        # Re-evaluate MUTE_STATUS and VOLUME after changing volume
+        MUTE_STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+        if [ "$MUTE_STATUS" == "yes" ]; then
+            update_notification "Volume: Muted"
+        else
+            VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
+            update_notification "Volume: ${VOLUME}%"
+        fi
         ;;
     mute)
         pactl set-sink-mute @DEFAULT_SINK@ toggle

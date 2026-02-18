@@ -89,9 +89,9 @@ else
   export EDITOR='hx'
 fi
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    exec startx
-fi
+# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+# 	startx &
+# fi
 # Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
 
@@ -138,7 +138,7 @@ export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
 export PATH="$PATH:/home/winter/.cargo/bin"
 export PATH="$PATH:/home/winter/ani-cli/"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/home/winter/.local/bin/statusbar"
 
 
 
