@@ -97,6 +97,10 @@
       "rev": "369c80aff5e71b1147f69ecbefa4b46d97f733d2",
       "src": "https://github.com/adriankarlen/plugin-view.nvim"
     },
+    "pywal16.nvim": {
+      "rev": "99aeadcd54301f3340c62520263166cd83fb5863",
+      "src": "https://github.com/uZer/pywal16.nvim"
+    },
     "rainbow-delimiters.nvim": {
       "rev": "d6b802552cbe7d643a3b6b31f419c248d1f1e220",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"

@@ -1,20 +1,22 @@
 //@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
 
-@theme "/usr/share/rofi/themes/dmenu.rasi"
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+@theme "/home/winter/.config/rofi/colors-rofi-dark.rasi"
 * {
-    background-color:      rgb(34, 34, 34);
-    border-color:          White;
-    text-color:           White;
-    font:            "IosevkaNerdFontMono 12";
+	font: "JetBrainsMonoNL 12";
 }
 
 window {
     anchor:     north;
     location:   north;
     width:      100%;
-	height:		3%;
 	padding:	0px;
     children:   [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
 }
 
 listview {
@@ -25,11 +27,11 @@ listview {
 prompt {
 	enabled: false;
 }
+entry {
+    expand:     false;
+    width:      10em;
+}
 
 element {
     padding: 0px 0px;
-}
-
-element selected {
-    background-color: rgb(128, 128, 128);
 }

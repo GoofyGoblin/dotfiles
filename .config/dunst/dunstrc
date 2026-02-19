@@ -1,26 +1,7 @@
 [global]
     geometry = "300x100-10+10"
-    background = "#222222"
-    foreground = "#FFFFFF"
-    frame_color = "#222222"
-
-[global]
-    timeout = 5
-    font = "IosevkaNerdFontMono 12"
-    separator_color = "#C0C0C0"
-
-[critical]
-    background = "#FF0000"
-    foreground = "#FFFFFF"
-
-[warning]
-    background = "#FFA500"
-    foreground = "#FFFFFF"
-
-[information]
-    background = "#007FFF"
-    foreground = "#FFFFFF"
-
-[normal]
-    background = "#222222"
-    foreground = "#FFFFFF"
+	foreground = #c3c5c8
+	background = #0f1825
+	border = #315265
+	font = "JetBrainsMonoNL 12"
+# You can add more Dunst-specific configurations here using the imported colors

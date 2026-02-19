@@ -30,7 +30,7 @@ neocodeium.setup()
 
 -- theme
 require("vague").setup({})
--- vim.cmd("colorscheme vague")
+vim.cmd("colorscheme vague")
 -- vim.cmd.("colorscheme kanagawa_lotus")
 -- vim.cmd("colorscheme onelight")
 -- require("onedarkpro").setup({
@@ -43,7 +43,9 @@ require("vague").setup({})
 -- 	treesitter = true
 --   }
 -- })
-vim.cmd("colorscheme onedark_dark")
+-- local pywal16 = require('pywal16')
+-- pywal16.setup()
+-- vim.cmd("colorscheme onedark")
 
 -- statusbar
 require("everybody-wants-that-line").setup({
