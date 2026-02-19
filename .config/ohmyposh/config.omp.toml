@@ -1,0 +1,48 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+version = 4
+final_space = true
+async = true
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+
+  [[blocks.segments]]
+  type = "path"
+  style = "plain"
+  foreground = "p:text-light"
+  background = "p:git-bg"
+  template = "  {{ .Path }} "
+  powerline_symbol = "=>"
+
+  [[blocks.segments]]
+  type = "git"
+  style = "plain"
+  foreground = "p:text-light"
+  background = "p:git-bg"
+  template = "  {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
+  powerline_symbol = "=>"
+
+    [blocks.segments.cache]
+    duration = "2s"
+    strategy = "session"
+
+  [[blocks.segments]]
+  type = "project"
+  style = "diamond"
+  foreground = "p:text-light"
+  background = "p:git-bg"
+  template = "  {{ .Name }}{{ if .Version }} {{ .Version }}{{ end }} "
+  powerline_symbol = "=>"
+
+  [[blocks.segments]]
+  type = "os"
+  style = "plain"
+  powerline_symbol = "=>"
+  template = " {{ if .WSL }}WSL at {{ end }}{{.Icon}} "
+  foreground = "p:text-light"
+  background = "p:git-bg"
+
+    [blocks.segments.cache]
+    duration = "24h"
+    strategy = "session"
