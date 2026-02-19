@@ -1,0 +1,7 @@
+#!/bin/bash
+ln -sf ~/.cache/wal/colors-wal-st.h ~/suckless_stuff/st/
+ln -sf ~/.cache/wal/colors.Xresources ~/
+
+
+
+

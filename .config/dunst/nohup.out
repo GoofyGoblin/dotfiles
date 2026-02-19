@@ -1,0 +1,2 @@
+WARNING: Setting geometry in section global doesn't exist
+CRITICAL: [dbus_cb_name_lost:1434] Cannot connect to DBus.

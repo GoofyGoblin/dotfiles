@@ -6,7 +6,7 @@
 
 [global]
     timeout = 5
-    font = "Liberation Sans 12"
+    font = "IosevkaNerdFontMono 12"
     separator_color = "#C0C0C0"
 
 [critical]

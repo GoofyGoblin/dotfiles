@@ -1,6 +1,7 @@
 #!/bin/bash
 
 WALLPAPER_DIR="/home/winter/wallpapers"
+SCRIPT=~/scripts/pywal16
 
 RANDOM_WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -print0 | shuf -n 1 -z)
 
@@ -9,6 +10,6 @@ if [ -z "$RANDOM_WALLPAPER" ]; then
   exit 1
 fi
 
-feh --bg-max "$RANDOM_WALLPAPER"
+wal -i "$RANDOM_WALLPAPER" -o $SCRIPT
 
-echo "Wallpaper set to: $RANDOM_WALLPAPER"
+

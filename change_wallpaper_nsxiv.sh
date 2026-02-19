@@ -1,5 +1,5 @@
 #!/bin/bash
-FOLDER=~/pics # wallpaper folder
+FOLDER=~/wallpapers/anime # wallpaper folder
 SCRIPT=~/scripts/pywal16 # script to run after wal for refreshing programs, etc.
 
 menu () {
@@ -12,7 +12,7 @@ menu () {
 case $CHOICE in
 		Random) wal -i "$FOLDER" -o $SCRIPT ;; # dmenu random option
 		*.*) wal -i "$CHOICE" -o $SCRIPT ;;
-		*) exit 0 ;;
+		*) wal -i "$CHOICE" -o $SCRIPT && $SCRIPT ;;
 esac
 }
 

@@ -4,7 +4,7 @@
 
 SEARCH="${1:-wallpaper desktop}"
 SRC="https://picsum.photos"
-DEST="/home/$USER/Pictures/wallpaper"
+DEST="/home/$USER/wallpaper/anime"
 BRIGHTNESS=100
 
 CURRENT_DESKTOP=$(ps -e | grep -E -i -m 1 -o "xfce|dwm")
