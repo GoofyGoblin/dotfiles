@@ -1,3 +1,4 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
 version = 4
 final_space = true
 async = true
@@ -5,26 +6,21 @@ async = true
 [[blocks]]
 type = "prompt"
 alignment = "left"
-newline = true
 
   [[blocks.segments]]
   type = "path"
   style = "plain"
   foreground = "p:text-light"
-  background = "#8B7B87"
-  template = "{{ .Path }} "
+  background = "p:git-bg"
+  template = "  {{ .Path }} "
   powerline_symbol = "=>"
-
-	[blocks.segments.properties]
-		style = "full"
 
   [[blocks.segments]]
   type = "git"
-  alignment = "right"
   style = "plain"
   foreground = "p:text-light"
-  background = "#8B7B87"
-  template = "{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
+  background = "p:git-bg"
+  template = "  {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
   powerline_symbol = "=>"
 
     [blocks.segments.cache]
@@ -33,9 +29,9 @@ newline = true
 
   [[blocks.segments]]
   type = "project"
-  style = "plain"
+  style = "diamond"
   foreground = "p:text-light"
-  background = "#8B7B87"
+  background = "p:git-bg"
   template = "  {{ .Name }}{{ if .Version }} {{ .Version }}{{ end }} "
   powerline_symbol = "=>"
 
@@ -45,23 +41,8 @@ newline = true
   powerline_symbol = "=>"
   template = " {{ if .WSL }}WSL at {{ end }}{{.Icon}} "
   foreground = "p:text-light"
-  background = "#8B7B87"
+  background = "p:git-bg"
 
     [blocks.segments.cache]
     duration = "24h"
     strategy = "session"
-
-[[blocks]]
-type = "prompt"
-alignment = "left"
-newline = true
-
-  [[blocks.segments]]
-  type = "text"
-  style = "plain"
-  foreground = "p:text-light"
-  template = "❯"
-
-[transient_prompt]
-foreground="p:text-light"
-template = "❯ "

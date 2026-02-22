@@ -46,6 +46,7 @@ vim.cmd("colorscheme vague")
 -- local pywal16 = require('pywal16')
 -- pywal16.setup()
 -- vim.cmd("colorscheme onedark")
+-- vim.cmd.colorscheme ("yawnc")
 
 -- statusbar
 require("everybody-wants-that-line").setup({

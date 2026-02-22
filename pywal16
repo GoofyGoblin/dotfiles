@@ -3,9 +3,11 @@ ln -sf ~/.cache/wal/colors-wal-st.h ~/suckless_stuff/st/
 ln -sf ~/.cache/wal/colors-wal-dwm.h ~/suckless_stuff/dwm
 ln -sf ~/.cache/wal/colors-rofi-dark.rasi ~/.config/rofi/
 
-./change_dunst_colors.sh
+xrdb -merge ~/.cache/wal/colors/colors.Xresources
+xrdb -merge ~/.Xresources 
 
-./recompile_suckless_stuff.sh
+./change_dunst_colors.sh
+./change_zsh_colors.sh
 
 kill -HUP $(pidof dwm)
 

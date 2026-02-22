@@ -23,9 +23,7 @@ vim.pack.add({
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/sontungexpt/vietnamese.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/NeogitOrg/neogit" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-	{ src = "https://github.com/uZer/pywal16.nvim" },
 	{
 	    src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 

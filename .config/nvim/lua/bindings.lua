@@ -87,12 +87,6 @@ map("n", "<leader>tc", ":tabclose<CR>")
 map("n", "<S-Tab>", ":tabprevious<CR>")
 map("n", "<Tab>", ":tabnext<CR>")
 
--- neogit
-map("n", "<leader>gg", ":Neogit<CR>")
-map("n", "<leader>gc", ":NeogitCommit<CR>")
-map("n", "<leader>gr", ":NeogitResetState<CR>")
-map("n", "<leader>gl", ":NeogitLog<CR>")
-
 -- treesitter text objects
 map({ "n", "x", "o" }, "]m", function()
 	require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")

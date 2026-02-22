@@ -1,87 +1,20 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
 HIST_STAMPS="dd/mm/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#
-#
-plugins=(git zsh-autosuggestions zsh-interactive-cd)
+plugins=(git zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/home/winter/.config/emacs/bin:$PATH"
 
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -91,46 +24,18 @@ else
   export EDITOR='hx'
 fi
 
-# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-# 	startx &
-# fi
-# Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias sober='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u'
-# alias cdwm="nvim ~/dwm-btw/config.h"
-# alias mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
-
 alias n='nvim'
-alias kickstart='NVIM_APPNAME="kickstart" nvim'
 alias h='helix'
 alias pi='doas xbps-install'
 alias su='doas xpbs-íntall -Su'
 alias pr='doas xbps-remove'
 alias cd='z'
-# alias jsdebug='nohup brave --remote-debugging-port=9222 http://localhost:5173'
 export PATH="$PATH:/home/winter/.spicetify-cli"
-# export WLR_DRM_DEVICES=/dev/dri/card1:dev/dri/card0
-
-
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
-
-# export BROWSER=google-chrome-unstable
-
-export PATH=$PATH:/home/winter/.spicetify
 
 # Created by `pipx` on 2026-01-03 06:42:11
 export PATH="$PATH:/home/winter/.local/bin"
@@ -138,16 +43,72 @@ export PATH="$PATH:/usr/lib/node_modules/prettier"
 export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 
 export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
+#export PATH="$PATH:/home/winter/.local/share/bob/v0.11.6/bin/"
 export PATH="$PATH:/home/winter/.cargo/bin"
 export PATH="$PATH:/home/winter/ani-cli/"
 export PATH="$PATH:/home/winter/.local/bin/statusbar"
-
-
-
+export MANPAGER="bat -plman"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+ZSH_HIGHLIGHT_STYLES[default]='fg=#FFFFFF,bg=none'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF5555,bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#FF79C6,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#50FA7B,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#8BE9FD,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#3BFF45,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#FFB86C'
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#FFFFFF,bold'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=#50FA7B'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#00FFFF,underline'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#00FFFF'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#FFB86C'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#FF5555,bold'
+
+# -----------------------------
+# Parameters & Variables
+# -----------------------------
+ZSH_HIGHLIGHT_STYLES[assign]='fg=#FFFFFF'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=#FF79C6'
+ZSH_HIGHLIGHT_STYLES[parameter]='fg=#FFFF00'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#00FFFF'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#00FFFF'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#00FFFF'
+ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=#00FFFF'
+
+# -----------------------------
+# Numbers
+# -----------------------------
+ZSH_HIGHLIGHT_STYLES[numeric-fd]='fg=#FFB86C'
+ZSH_HIGHLIGHT_STYLES[argument]='fg=#FFFFFF'
+
+# -----------------------------
+# Errors
+# -----------------------------
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ADAAAA,bold'
+ZSH_HIGHLIGHT_STYLES[command-not-found]='fg=#ADAAAA,bold'
+ZSH_HIGHLIGHT_STYLES[error]='fg=#ADAAAA,bold'
+
+# -----------------------------
+# Brackets & Patterns
+# -----------------------------
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=#FF5555'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=#F1FA8C'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=#8BE9FD'
+
+# -----------------------------
+# Specials
+# -----------------------------
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#6272A4,italic'
+ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[math-expression]='fg=#FFB86C'
+
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.omp.toml)"
 eval "$(zoxide init zsh)"
+source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
