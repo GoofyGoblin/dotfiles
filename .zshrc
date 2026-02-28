@@ -109,6 +109,21 @@ ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=#BD93F9'
 ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=#BD93F9'
 ZSH_HIGHLIGHT_STYLES[math-expression]='fg=#FFB86C'
 
+vterm_printf() {
+    if [ -n "$TMUX" ] \
+        && { [ "${TERM%%-*}" = "tmux" ] \
+            || [ "${TERM%%-*}" = "screen" ]; }; then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.omp.toml)"
 eval "$(zoxide init zsh)"
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

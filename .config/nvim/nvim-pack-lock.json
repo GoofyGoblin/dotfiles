@@ -12,10 +12,6 @@
       "rev": "666641d02fd8c58ac401c1fb6bf596bb00b815fb",
       "src": "https://github.com/smithbm2316/centerpad.nvim"
     },
-    "conform.nvim": {
-      "rev": "c2526f1cde528a66e086ab1668e996d162c75f4f",
-      "src": "https://github.com/stevearc/conform.nvim"
-    },
     "everybody-wants-that-line.nvim": {
       "rev": "d48f3e187422a206e0b83b50545fbcaaef307664",
       "src": "https://github.com/strash/everybody-wants-that-line.nvim"
@@ -44,10 +40,6 @@
       "rev": "fafacfecdd6c5a66bb10d173a749f3c098e84498",
       "src": "https://github.com/nvim-mini/mini.files"
     },
-    "mini.nvim": {
-      "rev": "dbb073bd2ed4a7bb35daafc7989567f0ff1426ee",
-      "src": "https://github.com/nvim-mini/mini.nvim"
-    },
     "multicursor.nvim": {
       "rev": "630dd29dd696bc977cb81d7dd2fa6bb280f60fc4",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
@@ -55,10 +47,6 @@
     "neocodeium": {
       "rev": "bfe790d78e66adaa95cb50a8c75c64a752336e9c",
       "src": "https://github.com/monkoose/neocodeium"
-    },
-    "neogit": {
-      "rev": "73870229977fdd8747025820e15e98cfde787b9c",
-      "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-autopairs": {
       "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
@@ -105,10 +93,6 @@
       "rev": "369c80aff5e71b1147f69ecbefa4b46d97f733d2",
       "src": "https://github.com/adriankarlen/plugin-view.nvim"
     },
-    "pywal16.nvim": {
-      "rev": "99aeadcd54301f3340c62520263166cd83fb5863",
-      "src": "https://github.com/uZer/pywal16.nvim"
-    },
     "rainbow-delimiters.nvim": {
       "rev": "d6b802552cbe7d643a3b6b31f419c248d1f1e220",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
@@ -140,10 +124,6 @@
     "vietnamese.nvim": {
       "rev": "63a8c88595297eac88bccd56cc071a277b3a3d0b",
       "src": "https://github.com/sontungexpt/vietnamese.nvim"
-    },
-    "yawnc.nvim": {
-      "rev": "4a926d0023472ec308d212be6bc6e5d865af5d43",
-      "src": "https://github.com/sonjiku/yawnc.nvim"
     }
   }
 }
