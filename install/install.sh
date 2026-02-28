@@ -4,7 +4,7 @@ DISK="/dev/sda"
 HOSTNAME="void-minimal"
 USERNAME="winter"
 DOTFILES_REPO="https://github.com/GoofyGoblin/dotfiles.git"
-SUCKLESS_STUFF="https://github.com/GoofyGobin/suckless_stuff.git"
+SUCKLESS_STUFF="https://github.com/GoofyGobin/suckless_stuff"
 
 RAM_MB=$(free -m | awk '/^Mem:/{print $2}')
 SWAP_SIZE_MB=$((RAM_MB * 2))
@@ -37,7 +37,7 @@ echo "Installing base-container and essential packages..."
 export REPO=https://repo-default.voidlinux.org/current
 XBPS_ARCH=x86_64 xbps-install -S -R "$REPO" -r /mnt \
     base-container linux grub-x86_64-efi efibootmgr \
-    dhcpcd git nvim bash-completion
+    dhcpcd git nvim bash ncurses cpio kpartx kmod eudev NetworkManager zsh
 
 cp /etc/resolv.conf /mnt/etc/
 mount -t proc /proc /mnt/proc
