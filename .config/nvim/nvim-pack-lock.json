@@ -53,7 +53,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "ca6ea12daf0a4d92dc24c5c9ae22a1f0418ade37",
+      "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
@@ -93,9 +93,9 @@
       "rev": "369c80aff5e71b1147f69ecbefa4b46d97f733d2",
       "src": "https://github.com/adriankarlen/plugin-view.nvim"
     },
-    "rainbow-delimiters.nvim": {
-      "rev": "d6b802552cbe7d643a3b6b31f419c248d1f1e220",
-      "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
+    "presence.nvim": {
+      "rev": "87c857a56b7703f976d3a5ef15967d80508df6e6",
+      "src": "https://github.com/andweeb/presence.nvim"
     },
     "refactoring.nvim": {
       "rev": "6784b54587e6d8a6b9ea199318512170ffb9e418",

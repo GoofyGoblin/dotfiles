@@ -15,6 +15,8 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/home/winter/.config/emacs/bin:$PATH"
 
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/home/winter/.local/share/flatpak/exports/share"
+
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions

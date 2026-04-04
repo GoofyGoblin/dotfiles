@@ -33,19 +33,19 @@ require("vague").setup({})
 vim.cmd("colorscheme vague")
 -- vim.cmd.("colorscheme kanagawa_lotus")
 -- vim.cmd("colorscheme onelight")
--- require("onedarkpro").setup({
---   highlights = {
---     Comment = { italic = true },
---     ErrorMsg = { italic = true, bold = true }
---   },
---   plugins = {
---     nvim_lsp = true,
--- 	treesitter = true
---   }
--- })
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { italic = true },
+    ErrorMsg = { italic = true, bold = true }
+  },
+  plugins = {
+    nvim_lsp = true,
+	treesitter = true
+  }
+})
 -- local pywal16 = require('pywal16')
 -- pywal16.setup()
--- vim.cmd("colorscheme onedark")
+-- vim.cmd("colorscheme onedark_dark")
 -- vim.cmd.colorscheme ("yawnc")
 
 -- statusbar
@@ -91,8 +91,8 @@ local lint = require("lint")
 require("lint").linters_by_ft = {
 	javascript = { "eslint_d" },
 	typescript = { "eslint_d" },
-	python = { "ruff" },
-	lua = { "luacheck" },
+	-- python = { "ruff" },
+	-- lua = { "luacheck" },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
 	callback = function()
@@ -107,14 +107,14 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
--- org mode
-require("orgmode").setup({
-	org_agenda_files = "~/notes/**/*",
-	org_default_notes_file = "~/notes/refile.org",
-})
-require("org-bullets").setup({
-	concealcursor = true,
-})
+-- -- org mode
+-- require("orgmode").setup({
+-- 	org_agenda_files = "~/notes/**/*",
+-- 	org_default_notes_file = "~/notes/refile.org",
+-- })
+-- require("org-bullets").setup({
+-- 	concealcursor = true,
+-- })
 
 -- flash
 require("flash").setup()
@@ -290,3 +290,5 @@ require("mini.files").setup({
 	}
 });
 
+
+-- vim.cmd("NeoCodeium disable");

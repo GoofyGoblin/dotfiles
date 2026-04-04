@@ -1,9 +1,14 @@
 local vim = vim
+vim.cmd([[set noswapfile]])
+vim.cmd("NeoCodeium disable");
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.wrap = true
-vim.o.linebreak = true
-vim.o.breakindent = true
+-- vim.o.wrap = true
+-- vim.o.breakindent = true
+-- vim.o.linebreak = true
+vim.o.wrap = false
+vim.o.breakindent = false
+vim.o.linebreak = false
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
 vim.g.mapleader = " "
@@ -11,7 +16,8 @@ vim.o.laststatus = 3
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
--- vim.o.expandtab = true
+vim.o.colorcolumn = "80"
+vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 vim.o.hlsearch = false
 vim.o.incsearch = true

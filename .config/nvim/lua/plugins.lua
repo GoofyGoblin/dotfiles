@@ -17,6 +17,7 @@ vim.pack.add({
 	{ src = "https://github.com/mfussenegger/nvim-lint" },
 	{ src = "https://github.com/nvim-orgmode/orgmode" },
 	{ src = "https://github.com/nvim-orgmode/org-bullets.nvim" },
+    { src = "https://github.com/andweeb/presence.nvim" },
 	{ src = "https://github.com/folke/flash.nvim" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
@@ -43,7 +44,7 @@ vim.pack.add({
 	      }, { cwd = plugin.path }):wait()
 	    end,
 	},
-	{ src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
+	-- { src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/MysticalDevil/inlay-hints.nvim" },
 	{ src = "https://github.com/jake-stewart/multicursor.nvim" },

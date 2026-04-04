@@ -1,0 +1,22 @@
+# Alacritty YAML Configuration
+
+shell:
+  program: /usr/bin/zsh
+
+font:
+  normal:
+    family: JetbrainsMono
+    style: Regular
+  bold:
+    family: JetbrainsMono
+    style: Bold
+  italic:
+    family: JetbrainsMono
+    style: Italic
+  bold_italic:
+    family: JetbrainsMono
+    style: Bold Italic
+  size: 11
+
+key_bindings:
+  - { key: F11, action: ToggleFullScreen }
