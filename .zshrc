@@ -44,8 +44,6 @@ export PATH="$PATH:/home/winter/.local/bin"
 export PATH="$PATH:/usr/lib/node_modules/prettier"
 export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 
-export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
-#export PATH="$PATH:/home/winter/.local/share/bob/v0.11.6/bin/"
 export PATH="$PATH:/home/winter/.cargo/bin"
 export PATH="$PATH:/home/winter/ani-cli/"
 export PATH="$PATH:/home/winter/.local/bin/statusbar"
@@ -54,6 +52,9 @@ export MANPAGER="bat -plman"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export QT_QPA_PLATFORM=wayland
+export SLD_VIDEODRIVER=wayland
 
 
 ZSH_HIGHLIGHT_STYLES[default]='fg=#FFFFFF,bg=none'

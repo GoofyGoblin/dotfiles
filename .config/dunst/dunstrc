@@ -1,7 +1,7 @@
 [global]
     geometry = "300x100-10+10"
-	foreground = "#c3c4cd"
-	background = "#111439"
-	border = "#73879F"
+	foreground = "#c2c0c0"
+	background = "#0b0404"
+	border = "#524739"
 	font = "JetBrainsMonoNL 12"
 # You can add more Dunst-specific configurations here using the imported colors
