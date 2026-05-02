@@ -24,64 +24,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 
 
-
 local neocodeium = require("neocodeium")
 neocodeium.setup()
 
 -- theme
-require("vague").setup({})
-vim.cmd("colorscheme vague")
--- vim.cmd.("colorscheme kanagawa_lotus")
--- vim.cmd("colorscheme onelight")
-require("onedarkpro").setup({
-  highlights = {
-    Comment = { italic = true },
-    ErrorMsg = { italic = true, bold = true }
-  },
-  plugins = {
-    nvim_lsp = true,
-	treesitter = true
-  }
-})
--- local pywal16 = require('pywal16')
--- pywal16.setup()
--- vim.cmd("colorscheme onedark_dark")
--- vim.cmd.colorscheme ("yawnc")
 
--- statusbar
-require("everybody-wants-that-line").setup({
-	buffer = {
-		enabled = true,
-		prefix = "B:",
-		symbol = "0",
-		max_symbols = 5,
-	},
-	diagnostics = {
-		enabled = true,
-	},
-	quickfix_list = {
-		enabled = true,
-	},
-	git_status = {
-		enabled = true,
-	},
-	filepath = {
-		enabled = true,
-		path = "relative",
-		shorten = true,
-	},
-	filesize = {
-		enabled = true,
-		metric = "decimal",
-	},
-	ruller = {
-		enabled = true,
-	},
-	filename = {
-		enabled = false,
-	},
-	separator = "│",
-})
+require("onedarkpro").setup()
+
+
+
+vim.cmd("colorscheme onedark_dark")
+
 
 -- big files
 require('faster').setup()
@@ -91,7 +44,7 @@ local lint = require("lint")
 require("lint").linters_by_ft = {
 	javascript = { "eslint_d" },
 	typescript = { "eslint_d" },
-	-- python = { "ruff" },
+	python = { "ruff" },
 	-- lua = { "luacheck" },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
@@ -115,9 +68,6 @@ vim.diagnostic.config({
 -- require("org-bullets").setup({
 -- 	concealcursor = true,
 -- })
-
--- flash
-require("flash").setup()
 
 -- blink cmp
 local blink = require("blink.cmp")
@@ -202,6 +152,7 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
+require('telescope').load_extension('projects')
 
 -- treesitter
 
@@ -215,7 +166,6 @@ require('nvim-treesitter.config').setup({
 		'javascript',
 		'typescript',
 		'tsx',
-		'jsx',
 		'python',
 	}
 })
@@ -283,12 +233,53 @@ pcall(function()
 end)
 
 
--- mini files
-require("mini.files").setup({
-	options = {
-		use_as_default_explorer = true
-	}
-});
+-- oil
+require("oil").setup({
+    view_options = {
+        show_hidden = true,
+    }
+})
 
+--- delete trailing whitespace on save
 
--- vim.cmd("NeoCodeium disable");
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = {"*"},
+    callback = function()
+      local save_cursor = vim.fn.getpos(".")
+      pcall(function() vim.cmd [[%s/\s\+$//e]] end)
+      vim.fn.setpos(".", save_cursor)
+    end,
+})
+
+-- outline
+require("outline").setup()
+
+--bufferline
+
+local bufferline = require('bufferline')
+
+bufferline.setup {
+    options = {
+        separator_style = "slant",
+    }
+}
+
+--gitsigns
+require('gitsigns').setup()
+
+-- noice
+require('noice').setup()
+
+-- project nvim
+require("project_nvim").setup()
+
+-- inlay hints stuff
+require('inlay-hint').setup({
+  virt_text_pos = 'eol',
+})
+
+-- code folding
+require("origami").setup()
+
+-- whitespace on visual mode
+require("visual-whitespace").setup()

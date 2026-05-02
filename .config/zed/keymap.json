@@ -1,0 +1,124 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "ctrl-alt-z": "workspace::ToggleCenteredLayout",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "AgentPanel",
+    "unbind": {
+      "ctrl-alt-l": "agent::OpenRulesLibrary",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f g": [
+        "task::Spawn",
+        { "task_name": "Television Find Grep", "reveal_target": "center" },
+      ],
+      "space w v": "pane::SplitVertical",
+      "space w s": "pane::SplitHorizontal",
+      "space c m": "lsp_tool::ToggleMenu",
+      "space o a": "agent::ToggleFocus",
+      "space o p": "outline_panel::ToggleFocus",
+      "space c b": "workspace::ToggleRightDock",
+      "space c B": "workspace::ToggleLeftDock",
+      "space p d": "diagnostics::Deploy",
+      "space e": "project_panel::ToggleFocus",
+      "space z": "workspace::ToggleCenteredLayout",
+      "space g": "git_panel::ToggleFocus",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-L": "workspace::SwapPaneRight",
+      "ctrl-H": "workspace::SwapPaneLeft",
+      "ctrl-J": "workspace::SwapPaneDown",
+      "ctrl-K": "workspace::SwapPaneUp",
+      "ctrl-alt-j": "workspace::DecreaseActiveDockSize",
+      "ctrl-alt-k": "workspace::IncreaseActiveDockSize",
+      "ctrl-alt-J": "workspace::DecreaseOpenDocksSize",
+      "ctrl-alt-K": "workspace::IncreaseOpenDocksSize",
+      "ctrl-d": [
+        "action::Sequence",
+        ["vim::ScrollDown", "editor::ScrollCursorCenter"],
+      ],
+      "ctrl-u": [
+        "action::Sequence",
+        ["vim::ScrollUp", "editor::ScrollCursorCenter"],
+      ],
+      "n": [
+        "action::Sequence",
+        ["vim::MoveToNextMatch", "editor::ScrollCursorCenter"],
+      ],
+      "N": [
+        "action::Sequence",
+        ["vim::MoveToPreviousMatch", "editor::ScrollCursorCenter"],
+      ],
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-l": ["vim::Literal", ["ctrl-l", "\f"]],
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-l": "editor::SelectLine",
+    },
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor || FileFinder > Picker > menu",
+    "unbind": {
+      "ctrl-l": "pane::SplitRight",
+    },
+  },
+  {
+    "context": "BufferSearchBar",
+    "unbind": {
+      "ctrl-l": "search::ToggleSelection",
+    },
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor || FileFinder > Picker > menu",
+    "unbind": {
+      "ctrl-l": "pane::SplitRight",
+    },
+  },
+  {
+    "unbind": {
+      "ctrl-alt-l": "lsp_tool::ToggleMenu",
+    },
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "bindings": {
+      "space c a": "editor::ToggleCodeActions",
+    },
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "space a": "editor::ToggleCodeActions",
+    },
+  },
+]

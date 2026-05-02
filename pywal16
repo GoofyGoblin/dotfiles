@@ -1,9 +1,22 @@
 #!/bin/bash
+CONFIG_FILE="$HOME/.config/foot/colors-foot.ini"
+
 ln -sf ~/.cache/wal/colors-wal-st.h ~/suckless_stuff/st/
 ln -sf ~/.cache/wal/colors-wal-dwm.h ~/suckless_stuff/dwm
 ln -sf ~/.cache/wal/colors-rofi-dark.rasi ~/.config/rofi/
+ln -sf ~/.cache/wal/colors-waybar.css ~/.config/waybar
+ln -sf ~/.cache/wal/colors-sway ~/.config/sway
+ln -sf ~/.cache/wal/colors-foot.ini ~/.config/foot
+perl -i -pe 's/\bcolors1\b/colors-dark/g' ~/.config/foot/colors-foot.ini
 
-xrdb -merge ~/.cache/wal/colors/colors.Xresources
+
+if [ -f "$CONFIG_FILE" ]; then
+    sed -i 's/^\[colors\]/[colors-dark]/' "$CONFIG_FILE"
+else
+    echo "Error: Config file not found."
+fi
+
+xrdb -merge ~/.cache/wal/colors.Xresources
 xrdb -merge ~/.Xresources 
 
 ./change_dunst_colors.sh

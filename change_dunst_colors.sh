@@ -9,6 +9,7 @@ cat > ~/.config/dunst/dunstrc.tmp << EOF
 	background = "$color0"
 	border = "$color1"
 	font = "JetBrainsMonoNL 12"
+    follow = "mouse"
 # You can add more Dunst-specific configurations here using the imported colors
 EOF
 

@@ -20,15 +20,12 @@ update_notification() {
         fi
     fi
 
-    
-    
-    dunstify -r "$REPLACE_ID" -u normal -h string:line:Volume -h string:icon:"$icon" "$message"
 }
 
 
 case "$1" in
     increase)
-        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        pactl set-sink-volume @DEFAULT_SINK@ +2%
         # Re-evaluate MUTE_STATUS and VOLUME after changing volume
         MUTE_STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
         if [ "$MUTE_STATUS" == "yes" ]; then
@@ -39,7 +36,7 @@ case "$1" in
         fi
         ;;
     decrease)
-        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        pactl set-sink-volume @DEFAULT_SINK@ -2%
         # Re-evaluate MUTE_STATUS and VOLUME after changing volume
         MUTE_STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
         if [ "$MUTE_STATUS" == "yes" ]; then

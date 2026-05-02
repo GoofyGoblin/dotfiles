@@ -25,14 +25,11 @@ vim.o.winborder = "rounded"
 vim.o.undofile = true
 vim.opt.autoindent = true
 vim.opt.fillchars = { eob = " " }
-vim.opt.list = true
 vim.opt.listchars = {
-    -- space = "·",
+    lead = "·",
     tab = "» ",
     trail = "_",
-    eol = "󰌑",
     extends = ">",
     precedes = "<",
 }
-vim.opt.cursorline = true
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff992b", bold = true })

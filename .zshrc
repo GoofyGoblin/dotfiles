@@ -15,8 +15,6 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/home/winter/.config/emacs/bin:$PATH"
 
-export XDG_DATA_DIRS="$XDG_DATA_DIRS:/home/winter/.local/share/flatpak/exports/share"
-
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -33,7 +31,6 @@ alias h='helix'
 alias pi='doas xbps-install'
 alias su='doas xpbs-íntall -Su'
 alias pr='doas xbps-remove'
-alias cd='z'
 export PATH="$PATH:/home/winter/.spicetify-cli"
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -44,18 +41,20 @@ export PATH="$PATH:/home/winter/.local/bin"
 export PATH="$PATH:/usr/lib/node_modules/prettier"
 export PATH="$PATH:/home/winter/.nvm/versions/node/v25.6.1/bin/npm"
 
+# export PATH="$PATH:/home/winter/.local/share/bob/nightly/bin/"
+#export PATH="$PATH:/home/winter/.local/share/bob/v0.11.6/bin/"
 export PATH="$PATH:/home/winter/.cargo/bin"
 export PATH="$PATH:/home/winter/ani-cli/"
 export PATH="$PATH:/home/winter/.local/bin/statusbar"
-export MANPAGER="bat -plman"
+export PATH="$PATH:/home/winter/.local/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export QT_QPA_PLATFORM=wayland
-export SLD_VIDEODRIVER=wayland
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 
+export QT_QPA_PLATFORM=wayland
 
 ZSH_HIGHLIGHT_STYLES[default]='fg=#FFFFFF,bg=none'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF5555,bold'
@@ -111,21 +110,6 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=#6272A4,italic'
 ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=#BD93F9'
 ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=#BD93F9'
 ZSH_HIGHLIGHT_STYLES[math-expression]='fg=#FFB86C'
-
-vterm_printf() {
-    if [ -n "$TMUX" ] \
-        && { [ "${TERM%%-*}" = "tmux" ] \
-            || [ "${TERM%%-*}" = "screen" ]; }; then
-        # Tell tmux to pass the escape sequences through
-        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
-    elif [ "${TERM%%-*}" = "screen" ]; then
-        # GNU screen (screen, screen-256color, screen-256color-bce)
-        printf "\eP\e]%s\007\e\\" "$1"
-    else
-        printf "\e]%s\e\\" "$1"
-    fi
-}
-
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.omp.toml)"
 eval "$(zoxide init zsh)"

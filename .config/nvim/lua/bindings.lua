@@ -1,7 +1,11 @@
 local vim = vim
 local map = vim.keymap.set
-
 map("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true })
+map("n", "<leader>e", "<cmd>Oil<CR>")
+map("n", "<leader>z", "<cmd>ZenMode<CR>")
+map("n", "<leader>o", "<cmd>Outline<CR>")
+map("n", "<leader>i", "<cmd>InlayHintsToggle<CR>")
+map("n", "<leader>g", "<cmd>LazyGit<CR>")
 map("n", "<leader>q", ":q<CR>")
 map("n", "<C-h>", "<C-w>h", { noremap = true })
 map("n", "<C-j>", "<C-w>j", { noremap = true })
@@ -9,19 +13,19 @@ map("n", "<C-k>", "<C-w>k", { noremap = true })
 map("n", "<C-l>", "<C-w>l", { noremap = true })
 map("n", "<leader>wv", vim.cmd.vsplit)
 map("n", "<leader>ws", vim.cmd.split)
-map("n", "<C-Left>", function()
+map("n", "<C-J>", function()
 	vim.cmd("vertical resize -5")
 end)
 
-map("n", "<C-Right>", function()
+map("n", "<C-K>", function()
 	vim.cmd("vertical resize +5")
 end)
 
-map("n", "<C-Down>", function()
+map("n", "<C-L>", function()
 	vim.cmd("resize +5")
 end)
 
-map("n", "<C-Up>", function()
+map("n", "<C-H>", function()
 	vim.cmd("resize -5")
 end)
 -- codeium
@@ -57,11 +61,7 @@ map("n", "<leader>ff", ":Telescope find_files<CR>")
 map("n", "<leader>fg", ":Telescope live_grep<CR>")
 map("n", "<leader>fb", ":Telescope buffers<CR>")
 map("n", "<leader>fh", ":Telescope oldfiles<CR>")
-
--- mini files
-map("n", "<leader>e", function()
-require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-end)
+map("n", "<leader>fp", ":Telescope projects<CR>")
 
 -- lsp
 map("n", "<leader>cf", vim.lsp.buf.format)
@@ -73,13 +73,6 @@ map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>p", function()
 	require("plugin-view").open()
 end)
-
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>z",
-	"<cmd>lua require'centerpad'.toggle{ leftpad = 30, rightpad = 30 }<cr>",
-	{ silent = true, noremap = true }
-)
 
 -- tabs
 map("n", "<leader>tn", ":tabnew<CR>")
@@ -190,4 +183,3 @@ map({"x", "n"}, "<leader>rv", function() require('refactoring').debug.print_var(
 -- Supports both visual and normal mode
 
 map("n", "<leader>rc", function() require('refactoring').debug.cleanup({}) end)
-
