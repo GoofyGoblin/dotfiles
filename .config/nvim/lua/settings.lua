@@ -13,6 +13,7 @@ vim.lsp.enable({
 	"tailwindcss",
 })
 
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -278,8 +279,51 @@ require('inlay-hint').setup({
   virt_text_pos = 'eol',
 })
 
--- code folding
-require("origami").setup()
-
 -- whitespace on visual mode
 require("visual-whitespace").setup()
+
+-- indent blankline
+require("ibl").setup()
+
+require('tailwind-fold').setup()
+
+-- debugger for cpp
+local dap = require("dap")
+local mason_registry = require("mason-registry")
+
+local dap = require("dap")
+
+local mason_path = vim.fn.getenv("MASON")
+if mason_path == vim.NIL or mason_path == "" then
+  mason_path = vim.fn.stdpath("data") .. "/mason"
+end
+
+local codelldb_path = mason_path .. "/packages/codelldb/extension/adapter/codelldb"
+
+dap.adapters.codelldb = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = codelldb_path,
+    args = { "--port", "${port}" },
+  },
+}
+
+local configurations = {
+  {
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  },
+}
+
+dap.configurations.cpp = configurations
+
+-- dap ui
+local dapui = require("dapui")
+require("dapui").setup()

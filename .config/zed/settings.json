@@ -7,9 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "terminal": {
+    "default_width": 640.0
+  },
+  "cli_default_open_behavior": "existing_window",
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+  },
   "ui_font_family": "JetBrainsMono Nerd Font",
   "edit_predictions": {
-    "provider": "none",
+    "provider": "codestral",
   },
   "outline_panel": {
     "dock": "left",
@@ -21,17 +30,12 @@
   "use_smartcase_search": false,
   "document_folding_ranges": "off",
   "relative_line_numbers": "enabled",
-  "agent_servers": {
-    "gemini": {
-      "type": "registry",
-    },
-  },
   "middle_click_paste": false,
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "proxy": "",
   "vim_mode": true,
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Material Icon Theme",
   },
@@ -40,15 +44,15 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "dark",
-    "light": "One Light",
-    "dark": "One Dark Pro Glass"
+    "light": "Gruvbox Light Soft",
+    "dark": "One Dark Pro Max",
   },
   "autosave": "on_focus_change",
   "auto_update": true,
   "diagnostics_max_severity": "warning",
   "current_line_highlight": "gutter",
   "cursor_blink": false,
-  "hide_mouse": "on_typing_and_movement",
+  "hide_mouse": "on_typing_and_action",
   "snippet_sort_order": "bottom",
   "scrollbar": {
     "show": "never",
@@ -73,5 +77,10 @@
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
+  },
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["tsgo", "vtsls"],
+    },
   },
 }

@@ -183,3 +183,11 @@ map({"x", "n"}, "<leader>rv", function() require('refactoring').debug.print_var(
 -- Supports both visual and normal mode
 
 map("n", "<leader>rc", function() require('refactoring').debug.cleanup({}) end)
+
+map("n", "<leader>du", function() require("dapui").toggle({}) end)
+
+map("n", "<F5>", function() require("dap").continue() end)
+map("n", "<F10>", function() require("dap").step_over() end)
+map("n", "<F11>", function() require("dap").step_into() end)
+map("n", "<F12>", function() require("dap").step_out() end)
+map("n", "<leader>b", function() require("dap").toggle_breakpoint() end)

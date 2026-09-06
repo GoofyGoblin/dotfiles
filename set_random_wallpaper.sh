@@ -18,4 +18,4 @@ if pid="$(pidof swaybg)"; then
 fi
 
 # Start swaybg with the chosen wallpaper in background (nohup is POSIX-friendly)
-nohup swaybg -i "$RANDOM_WALLPAPER" >/dev/null 2>&1 &
+nohup swaybg -m fill -i "$RANDOM_WALLPAPER" >/dev/null 2>&1 &

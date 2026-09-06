@@ -3,7 +3,7 @@
 //@theme "/usr/share/rofi/themes/dmenu.rasi"
 @theme "/home/winter/.config/rofi/colors-rofi-dark.rasi"
 * {
-	font: "JetBrainsMonoNL 12";
+	font: "JetBrainsMono 12";
 }
 
 window {

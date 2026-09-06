@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 CONFIG_FILE="$HOME/.config/foot/colors-foot.ini"
 
 ln -sf ~/.cache/wal/colors-wal-st.h ~/suckless_stuff/st/
@@ -17,12 +17,13 @@ else
 fi
 
 xrdb -merge ~/.cache/wal/colors.Xresources
-xrdb -merge ~/.Xresources 
+xrdb -merge ~/.Xresources
 
 ./change_dunst_colors.sh
 ./change_zsh_colors.sh
 
 kill -HUP $(pidof dwm)
+kill -HUP $(pidof foot)
 
 
 

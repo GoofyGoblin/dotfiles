@@ -28,13 +28,18 @@ client.urgent           #eb4d4b  #eb4d4b  #ffffff  #eb4d4b  #eb4d4b
 
 ### Output Configuration
 output HDMI-A-1 {
+    scale 1.0
     resolution 1920x1080@120Hz
-    position 0 0
+    position 0 864
 }
 
+# output HDMI-A-1 modeline 232.00  1280 1384 1520 1760  1024 1027 1034 1100 -hsync +vsync
+# output HDMI-A-1 mode 1280x1024@120Hz
+
 output eDP-1 {
+    scale 1.25
     resolution 1920x1080@60Hz
-    position 1920 0
+    position 0 0
 }
 
 workspace 8 output eDP-1
@@ -116,32 +121,20 @@ mode "resize" {
 
 
 # Exit Sway
-bindsym $mod+Shift+q exec swaymsg exit
+bindsym $mod+Shift+q exec swaynag -t warning -m 'exit sway?' -B 'yuh' 'swaymsg exit'
 ### Window Rules
 for_window [class="Gimp"] floating enable
 for_window [class="nsxiv"] floating enable
 assign [class="Firefox"] workspace number 9
 
-#Corner
-corner_radius 20
-
-#gaps
-
-gaps inner 10
-gaps outer 5
-
-
-## opacity
-for_window [class=".*"] opacity 0.8
-
-## blur
-blur on
-blur_passes 3
-blur_radius 5
-
 ### rebind capslock
 input * {
     xkb_options "caps:super"
+}
+
+### enable tap on touchpad
+input "type:touchpad" {
+  tap enabled
 }
 
 
@@ -150,6 +143,7 @@ exec /usr/libexec/xdg-desktop-portal-wlr &
 exec /usr/libexec/xdg-desktop-portal-gtk &
 exec /usr/libexec/xdg-desktop-portal &
 exec autotiling &
-exec ./set_random_wallpaper.sh &
 exec waybar &
+# exec ./set_weeb_wallpaper.sh &
+exec ./set_random_wallpaper.sh &
 exec ./swaylock.sh &

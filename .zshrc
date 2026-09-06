@@ -29,9 +29,7 @@ export ARCHFLAGS="-arch $(uname -m)"
 alias n='nvim'
 alias h='helix'
 alias pi='doas xbps-install'
-alias su='doas xpbs-íntall -Su'
 alias pr='doas xbps-remove'
-export PATH="$PATH:/home/winter/.spicetify-cli"
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
@@ -114,3 +112,7 @@ ZSH_HIGHLIGHT_STYLES[math-expression]='fg=#FFB86C'
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.omp.toml)"
 eval "$(zoxide init zsh)"
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/winter/.local/bin:$PATH"

@@ -1,0 +1,3 @@
+#!/bin/bash
+filepath="$HOME/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png"
+grim -g "$(slurp)" "$filepath" && xdg-open "$filepath"
