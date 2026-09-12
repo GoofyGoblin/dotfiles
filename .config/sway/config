@@ -11,7 +11,7 @@ set $menu rofi -show drun
 # set $sel_bg
 # set $sel_border
 
-include colors-sway
+#include colors-sway
 
 ### Appearance
 font pango:JetBrainsMonoNL 12
@@ -21,26 +21,26 @@ default_floating_border pixel 1
 smart_borders on
 
 # Color Schemes: <class> <border> <bg> <text> <indicator> <child_border>
-client.focused          $color5  $color3  $color0  $color5  $color5
-client.focused_inactive $color2  $color1  $color0  $color2  $color2
-client.unfocused        $color2  $color1  $color0  $color3  $color2
-client.urgent           #eb4d4b  #eb4d4b  #ffffff  #eb4d4b  #eb4d4b
+#client.focused          $color5  $color3  $color0  $color5  $color5
+#client.focused_inactive $color2  $color1  $color0  $color2  $color2
+#client.unfocused        $color2  $color1  $color0  $color3  $color2
+#client.urgent           #eb4d4b  #eb4d4b  #ffffff  #eb4d4b  #eb4d4b
 
 ### Output Configuration
 output HDMI-A-1 {
     scale 1.0
-    resolution 1920x1080@120Hz
+    resolution 1920x1080@60Hz
     position 0 864
 }
 
 # output HDMI-A-1 modeline 232.00  1280 1384 1520 1760  1024 1027 1034 1100 -hsync +vsync
 # output HDMI-A-1 mode 1280x1024@120Hz
 
-output eDP-1 {
-    scale 1.25
-    resolution 1920x1080@60Hz
-    position 0 0
-}
+#output eDP-1 {
+#    scale 1.25
+#    resolution 1920x1080@60Hz
+#    position 0 0
+#}
 
 workspace 8 output eDP-1
 workspace 9 output eDP-1
