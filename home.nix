@@ -2,7 +2,11 @@
 
 { home.username = "winter";
     home.homeDirectory = "/home/winter";
-    programs.git.enable = true;
+    programs.git = {
+        enable = true;
+        userName = "winterwinterwinter";
+        userEmail = "hoh20677@gmail.com";
+    };
     home.stateVersion = "26.05";
     programs.zsh = {
         enable = true;
@@ -111,7 +115,7 @@
     };
 
     xdg.desktopEntries.gacha-wallpaper = {
-        name = "Change wallpaper";
+        name = "Random wallpaper";
         exec = "/home/winter/scripts/set_random_wallpaper.sh";
         type = "Application";
     };
@@ -140,6 +144,7 @@
         vesktop
         fastfetch
         lazygit
+        gradia
     ];
 }
 

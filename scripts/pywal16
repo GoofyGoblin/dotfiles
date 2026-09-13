@@ -1,16 +1,18 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
+
 CONFIG_FILE="$HOME/.cache/wal/colors-foot-dark.ini"
 
+# Tạo các liên kết ứng dụng (Symlinks)
 ln -sf ~/.cache/wal/colors-wal-st.h ~/suckless_stuff/st/
-ln -sf ~/.cache/wal/colors-wal-dwm.h ~/suckless_stuff/dwm
+ln -sf ~/.cache/wal/colors-wal-dwm.h ~/suckless_stuff/dwm/
 ln -sf ~/.cache/wal/colors-rofi-dark.rasi ~/dotfiles/.config/rofi/
-ln -sf ~/.cache/wal/colors-waybar.css ~/dotfiles/.config/waybar
-ln -sf ~/.cache/wal/colors-sway ~/dotfiles/.config/sway
-ln -sf ~/.cache/wal/colors-foot-dark.ini ~/dotfiles/.config/foot
-perl -i -pe 's/\bcolors1\b/colors-dark/g' CONFIG_FILE
+ln -sf ~/.cache/wal/colors-waybar.css ~/dotfiles/.config/waybar/
+ln -sf ~/.cache/wal/colors-sway ~/dotfiles/.config/sway/
+ln -sf ~/.cache/wal/colors-foot-dark.ini ~/dotfiles/.config/foot/
 
-
+# Sửa lỗi biến CONFIG_FILE trong Perl (Thêm dấu $)
 if [ -f "$CONFIG_FILE" ]; then
+    perl -i -pe 's/\bcolors1\b/colors-dark/g' "$CONFIG_FILE"
     sed -i 's/^\[colors\]/[colors-dark]/' "$CONFIG_FILE"
 else
     echo "Error: Config file not found."
@@ -19,24 +21,18 @@ fi
 xrdb -merge ~/.cache/wal/colors.Xresources
 xrdb -merge ~/.Xresources
 
-./home/winter/scripts/change_dunst_colors.sh
-./home/winter/scripts/change_zsh_colors.sh
+~/scripts/change_dunst_colors.sh
+~/scripts/change_zsh_colors.sh
 
+cd ~/dotfiles/ && sudo nixos-rebuild switch --flake ~/dotfiles#nixos-btw
 
 pkill dunst
-dunst &
+dunst > /dev/null 2>&1 &
+disown
 
 pkill waybar
-waybar &
-
-cd ~/dotfiles/ &
-sudo nixos-rebuild switch --flake ~/dotfiles#nixos-btw
-
-
+waybar > /dev/null 2>&1 &
+disown
 
 kill -HUP $(pidof dwm)
 kill -HUP $(pidof foot)
-
-
-
-

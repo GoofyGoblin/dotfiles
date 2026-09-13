@@ -29,8 +29,8 @@ client.urgent           #eb4d4b  #eb4d4b  #ffffff  #eb4d4b  #eb4d4b
 ### Output Configuration
 output HDMI-A-1 {
     scale 1.0
-    resolution 1920x1080@60Hz
-    position 0 864
+    resolution 1920x1080@120Hz
+    position 0 0
 }
 
 # output HDMI-A-1 modeline 232.00  1280 1384 1520 1760  1024 1027 1034 1100 -hsync +vsync
@@ -50,7 +50,7 @@ workspace 9 output eDP-1
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
-bindsym $mod+e exec ./rofi_screenlock.sh
+bindsym $mod+e exec ./scripts/rofi_screenlock.sh
 bindsym $mod+s exec flameshot gui
 
 # Navigation (Focus)
