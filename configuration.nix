@@ -14,6 +14,12 @@
 
   time.timeZone = "Asia/Ho_Chi_Minh";
 
+  fileSystems."/home/winter/Downloads" = {
+      device = "/dev/disk/by-uuid/397dcb5e-1e5f-496a-ab0a-059db1305815";
+      fsType = "ext4";
+      options = [ "nofail" ];
+  };
+
   #i hope i always check every bash script from curl before running it
   security.sudo.enable = true;
 
@@ -49,6 +55,11 @@
   services.displayManager.ly.enable = true;
 
   services.printing.enable = true;
+
+  services.libinput = {
+      enable = true;
+      mouse.middleEmulation = true;
+  };
 
   services.pipewire = {
     enable = true;
@@ -88,8 +99,8 @@
     type = "fcitx5";
     enable = true;
     fcitx5.addons = with pkgs; [
-      qt6Packages.fcitx5-unikey
-      fcitx5-configtool
+      fcitx5-bamboo
+      qt6Packages.fcitx5-configtool
       fcitx5-gtk
     ];
     fcitx5.waylandFrontend = true;
@@ -97,6 +108,7 @@
 
 
   programs.firefox.enable = true;
+
 
   environment.systemPackages = with pkgs; [
     pulseaudio

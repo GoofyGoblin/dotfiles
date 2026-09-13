@@ -120,6 +120,13 @@
         type = "Application";
     };
 
+    gtk = {
+        enable = true;
+        theme = {
+            name = "Adawaita-dark";
+            package = pkgs.gnome-themes-extra;
+        };
+    };
 
     home.packages = with pkgs; [
 	      zsh-autosuggestions
@@ -145,6 +152,8 @@
         fastfetch
         lazygit
         gradia
+        nautilus
+        unrar
     ];
 }
 
