@@ -51,7 +51,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+e exec ./scripts/rofi_screenlock.sh
-bindsym $mod+s exec flameshot gui
+bindsym $mod+s exec gradia --screenshot=INTERACTIVE
+bindsym $mod+shift+s exec gradia --screenshot=FULL
 
 # Navigation (Focus)
 bindsym $mod+j focus down

@@ -27,12 +27,12 @@ xrdb -merge ~/.Xresources
 cd ~/dotfiles/ && sudo nixos-rebuild switch --flake ~/dotfiles#nixos-btw
 
 pkill dunst
-dunst > /dev/null 2>&1 &
-disown
-
 pkill waybar
-waybar > /dev/null 2>&1 &
-disown
+
+sleep 0.5
+
+setsid dunst > /dev/null 2>&1 &
+setsid waybar > /dev/null 2>&1 &
 
 kill -HUP $(pidof dwm)
 kill -HUP $(pidof foot)

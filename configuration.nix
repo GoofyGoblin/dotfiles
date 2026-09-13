@@ -14,6 +14,9 @@
 
   time.timeZone = "Asia/Ho_Chi_Minh";
 
+  #i hope i always check every bash script from curl before running it
+  security.sudo.enable = true;
+
   #change shell
   programs.zsh.enable = true;
 
@@ -81,6 +84,18 @@
     ];
   };
 
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      qt6Packages.fcitx5-unikey
+      fcitx5-configtool
+      fcitx5-gtk
+    ];
+    fcitx5.waylandFrontend = true;
+  };
+
+
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -105,6 +120,12 @@
   fonts.packages = with pkgs; [
   	nerd-fonts.jetbrains-mono
   ];
+
+  nix.gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
