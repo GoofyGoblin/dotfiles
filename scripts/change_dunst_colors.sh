@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ~/.cache/wal/colors.sh
 
-cat > ~/.config/dunst/dunstrc.tmp << EOF
+cat > ~/dotfiles/.config/dunst/dunstrc.tmp << EOF
 [global]
     geometry = "300x100-10+10"
 	foreground = "$color7"
@@ -13,7 +13,4 @@ cat > ~/.config/dunst/dunstrc.tmp << EOF
 # You can add more Dunst-specific configurations here using the imported colors
 EOF
 
-mv ~/.config/dunst/dunstrc.tmp ~/.config/dunst/dunstrc
-
-pkill dunst
-dunst &
+mv ~/dotfiles/.config/dunst/dunstrc.tmp ~/dotfiles/.config/dunst/dunstrc

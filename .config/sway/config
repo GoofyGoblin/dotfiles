@@ -11,7 +11,7 @@ set $menu rofi -show drun
 # set $sel_bg
 # set $sel_border
 
-#include colors-sway
+include ~/.cache/wal/colors-sway
 
 ### Appearance
 font pango:JetBrainsMonoNL 12
@@ -21,10 +21,10 @@ default_floating_border pixel 1
 smart_borders on
 
 # Color Schemes: <class> <border> <bg> <text> <indicator> <child_border>
-#client.focused          $color5  $color3  $color0  $color5  $color5
-#client.focused_inactive $color2  $color1  $color0  $color2  $color2
-#client.unfocused        $color2  $color1  $color0  $color3  $color2
-#client.urgent           #eb4d4b  #eb4d4b  #ffffff  #eb4d4b  #eb4d4b
+client.focused          $color5  $color3  $color0  $color5  $color5
+client.focused_inactive $color2  $color1  $color0  $color2  $color2
+client.unfocused        $color2  $color1  $color0  $color3  $color2
+client.urgent           #eb4d4b  #eb4d4b  #ffffff  #eb4d4b  #eb4d4b
 
 ### Output Configuration
 output HDMI-A-1 {
@@ -78,9 +78,9 @@ bindsym $mod+a exec warpd --hint
 bindsym $mod+c exec warpd --normal
 
 # Audio / Brightness (Function keys)
-bindsym XF86AudioRaiseVolume exec ./volume_control.sh increase
-bindsym XF86AudioLowerVolume exec ./volume_control.sh decrease
-bindsym XF86AudioMute        exec ./volume_control.sh mute
+bindsym XF86AudioRaiseVolume exec ./scripts/volume_control.sh increase
+bindsym XF86AudioLowerVolume exec ./scripts/volume_control.sh decrease
+bindsym XF86AudioMute        exec ./scripts/volume_control.sh mute
 
 # Brightness (Using your MODKEY + Volume combo from DWM)
 bindsym $mod+XF86AudioRaiseVolume exec brightnessctl set +5%
@@ -145,5 +145,5 @@ exec /usr/libexec/xdg-desktop-portal &
 exec autotiling &
 exec waybar &
 # exec ./set_weeb_wallpaper.sh &
-exec ./set_random_wallpaper.sh &
-exec ./swaylock.sh &
+exec ./scripts/set_random_wallpaper.sh &
+exec ./scripts/swaylock.sh &

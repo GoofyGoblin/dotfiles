@@ -1,5 +1,3 @@
-export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="af-magic"
 
 ENABLE_CORRECTION="true"
@@ -10,26 +8,10 @@ HIST_STAMPS="dd/mm/yyyy"
 
 plugins=(git zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
-
-export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/home/winter/.config/emacs/bin:$PATH"
-
 export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='hx'
-fi
-
-export ARCHFLAGS="-arch $(uname -m)"
 
 alias n='nvim'
 alias h='helix'
-alias pi='doas xbps-install'
-alias pr='doas xbps-remove'
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
@@ -53,6 +35,7 @@ export NVM_DIR="$HOME/.nvm"
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 
 export QT_QPA_PLATFORM=wayland
+source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_STYLES[default]='fg=#FFFFFF,bg=none'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF5555,bold'
@@ -110,9 +93,3 @@ ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=#BD93F9'
 ZSH_HIGHLIGHT_STYLES[math-expression]='fg=#FFB86C'
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.omp.toml)"
-eval "$(zoxide init zsh)"
-source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-# Added by Antigravity CLI installer
-export PATH="/home/winter/.local/bin:$PATH"

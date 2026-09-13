@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 WALLPAPER_DIR="/home/winter/wallpapers"
 
 RANDOM_WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0 | shuf -n 1 -z)

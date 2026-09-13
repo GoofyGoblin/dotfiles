@@ -18,7 +18,6 @@ vim.pack.add({
 	{ src = "https://github.com/sontungexpt/vietnamese.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", },
 	{ src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/MysticalDevil/inlay-hints.nvim" },

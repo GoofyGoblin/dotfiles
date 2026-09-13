@@ -1,0 +1,42 @@
+#/usr/bin/env bash
+CONFIG_FILE="$HOME/.cache/wal/colors-foot-dark.ini"
+
+ln -sf ~/.cache/wal/colors-wal-st.h ~/suckless_stuff/st/
+ln -sf ~/.cache/wal/colors-wal-dwm.h ~/suckless_stuff/dwm
+ln -sf ~/.cache/wal/colors-rofi-dark.rasi ~/dotfiles/.config/rofi/
+ln -sf ~/.cache/wal/colors-waybar.css ~/dotfiles/.config/waybar
+ln -sf ~/.cache/wal/colors-sway ~/dotfiles/.config/sway
+ln -sf ~/.cache/wal/colors-foot-dark.ini ~/dotfiles/.config/foot
+perl -i -pe 's/\bcolors1\b/colors-dark/g' CONFIG_FILE
+
+
+if [ -f "$CONFIG_FILE" ]; then
+    sed -i 's/^\[colors\]/[colors-dark]/' "$CONFIG_FILE"
+else
+    echo "Error: Config file not found."
+fi
+
+xrdb -merge ~/.cache/wal/colors.Xresources
+xrdb -merge ~/.Xresources
+
+./home/winter/scripts/change_dunst_colors.sh
+./home/winter/scripts/change_zsh_colors.sh
+
+
+pkill dunst
+dunst &
+
+pkill waybar
+waybar &
+
+cd ~/dotfiles/ &
+sudo nixos-rebuild switch --flake ~/dotfiles#nixos-btw
+
+
+
+kill -HUP $(pidof dwm)
+kill -HUP $(pidof foot)
+
+
+
+

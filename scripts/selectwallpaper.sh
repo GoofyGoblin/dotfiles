@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # wal -i "$CHOICE" -o "pywal16"
 FOLDER=~/wallpapers
@@ -23,7 +23,7 @@ FOLDER=~/wallpapers
 CHOICE=$(nsxiv -otb $FOLDER/*)
 
 if [ -n "$CHOICE" ]; then
-  swaybg -i "$CHOICE" 
+  swaybg -i "$CHOICE"
   echo "$CHOICE"
 else
   echo "No wallpaper selected"

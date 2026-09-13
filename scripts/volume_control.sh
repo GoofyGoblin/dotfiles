@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-REPLACE_ID="9999" 
+REPLACE_ID="9999"
 update_notification() {
     local message="$1"
-    local icon="audio-volume-high" 
+    local icon="audio-volume-high"
 
     MUTE_STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
     if [ "$MUTE_STATUS" == "yes" ]; then
@@ -13,7 +13,7 @@ update_notification() {
         VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
         if [ "$VOLUME" -eq 0 ]; then
             icon="audio-volume-off"
-        elif [ "$VOLUME" -lt 50 ]; then 
+        elif [ "$VOLUME" -lt 50 ]; then
             icon="audio-volume-low"
         else
             icon="audio-volume-high"

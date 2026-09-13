@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ~/.cache/wal/colors.sh
-file_path="/home/winter/.config/ohmyposh/config.omp.toml"
+file_path="/home/winter/dotfiles/.config/ohmyposh/config.omp.toml"
 variable_name="background"
 new_value=$color1
 
