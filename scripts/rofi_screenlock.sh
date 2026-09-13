@@ -16,10 +16,10 @@ case "$choice" in
     swaylock -i "$bg"
     ;;
   " Shutdown")
-    doas poweroff
+    sudo poweroff
     ;;
   " Reboot")
-    doas reboot
+    sudo reboot
     ;;
   " Suspend")
     bg=/tmp/swaylock-bg.png
